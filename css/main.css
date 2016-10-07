@@ -1,0 +1,16 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: #EDF0F3;
+}
+
+.top-bar {
+  position: relative;
+  height: 96px;
+  background: #25404F;
+}
+
+
+#texto-display-none{
+  display: none;
+}
