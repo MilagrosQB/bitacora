@@ -11,95 +11,85 @@ function main (){
   opcionPastilla.addEventListener("click",bloquePastilla);  
 }
 
-function Post(textArea, hora, titulo){
+  var taskContainer = document.getElementById("tasks-container");
+  var divContenedor = document.createElement("div");
+  var divTexto = document.createElement("div");
+  var titulo = document.createElement("input");
+  var textArea = document.createElement("textarea");
+  var btnCerrar = document.createElement("button");
+  var btnPublicar = document.createElement("button");
+
+function bloqueTexto(){
+    taskContainer.insertBefore(divContenedor,taskContainer.childNodes[0]);
+    divContenedor.insertBefore(divTexto, divContenedor.childNodes[0]);
+        titulo.placeholder= "Título de la publicación";
+    divTexto.insertBefore(titulo, divTexto.childNodes[1]);
+        textArea.setAttribute("rows", 3);
+        textArea.setAttribute("cols", 1);
+        textArea.placeholder="Escribe un comentario"; 
+    divTexto.insertBefore(textArea, divTexto.childNodes[2]);    
+    btnCerrar.innerHTML= "Cerrar";
+        divTexto.insertBefore(btnCerrar, divTexto.childNodes[3]);
+        btnCerrar.addEventListener("click", function(){
+          divContenedor.parentNode.removeChild(divContenedor);
+        })
+    btnPublicar.innerHTML= "Publicar";
+        divTexto.insertBefore(btnPublicar, divTexto.childNodes[3]);
+}
+
+function bloqueCita(){
+    taskContainer.insertBefore(divContenedor,taskContainer.childNodes[0]);
+    divContenedor.insertBefore(divTexto, divContenedor.childNodes[0]);
+        textArea.setAttribute("rows", 3);
+        textArea.setAttribute("cols", 1);
+        textArea.placeholder="Escribe una frase"; 
+    divTexto.insertBefore(textArea, divTexto.childNodes[1]);  
+        titulo.placeholder= "Autor de la Cita";
+    divTexto.insertBefore(titulo, divTexto.childNodes[2]);
+        btnCerrar.innerHTML= "Cerrar";
+    divTexto.insertBefore(btnCerrar, divTexto.childNodes[3]);
+        btnCerrar.addEventListener("click", function(){
+          divContenedor.parentNode.removeChild(divContenedor);
+        })     
+    btnPublicar.innerHTML= "Publicar";
+        divTexto.insertBefore(btnPublicar, divTexto.childNodes[3]);        
+ }
+
+function bloqueMeme(){
+    taskContainer.insertBefore(divContenedor,taskContainer.childNodes[0]);
+    divContenedor.insertBefore(divTexto, divContenedor.childNodes[0]);
+        textArea.setAttribute("rows", 3);
+        textArea.setAttribute("cols", 1);
+        textArea.placeholder="Pega la URL de tu Meme"; 
+    divTexto.insertBefore(textArea, divTexto.childNodes[1]);  
+        btnCerrar.innerHTML= "Cerrar";
+    divTexto.insertBefore(btnCerrar, divTexto.childNodes[2]);
+        btnCerrar.addEventListener("click", function(){
+          divContenedor.parentNode.removeChild(divContenedor);
+        })     
+        btnPublicar.innerHTML= "Publicar";
+    divTexto.insertBefore(btnPublicar, divTexto.childNodes[2]);        
+ }
+
+function bloquePastilla(){
+    taskContainer.insertBefore(divContenedor,taskContainer.childNodes[0]);
+    divContenedor.insertBefore(divTexto, divContenedor.childNodes[0]);
+        textArea.setAttribute("rows", 3);
+        textArea.setAttribute("cols", 1);
+        textArea.placeholder="What's up?"; 
+    divTexto.insertBefore(textArea, divTexto.childNodes[1]);  
+        btnCerrar.innerHTML= "Cerrar";
+    divTexto.insertBefore(btnCerrar, divTexto.childNodes[2]);
+        btnCerrar.addEventListener("click", function(){
+          divContenedor.parentNode.removeChild(divContenedor);
+        })    
+        btnPublicar.innerHTML= "Pastilla";
+    divTexto.insertBefore(btnPublicar, divTexto.childNodes[3]);        
+ }
+
+/*function Post(textArea, hora, titulo){
   this.textArea = textArea;
   this.hora = hora;
   this.titulo = titulo;
-};
-
-function bloqueTexto(e){
-  e.preventDefault();
-  var taskContainer = document.getElementById("tasks-container");
-  var divContenedor = document.createElement("div");
-    taskContainer.insertBefore(divContenedor,taskContainer.childNodes[0]);
-  var divTexto = document.createElement("div");
-    divContenedor.insertBefore(divTexto, divContenedor.childNodes[0]);
-  var titulo = document.createElement("input");
-    titulo.placeholder= "Título de la publicación";
-    divTexto.insertBefore(titulo, divTexto.childNodes[1]);
-  var textArea = document.createElement("textarea");
-    textArea.setAttribute("rows", 3);
-    textArea.setAttribute("cols", 1);
-    textArea.placeholder="Escribe un comentario"; 
-    divTexto.insertBefore(textArea, divTexto.childNodes[2]);    
-  var btnCerrar = document.createElement("button");
-    btnCerrar.innerHTML= "Cerrar";
-    divTexto.insertBefore(btnCerrar, divTexto.childNodes[3]); 
-  var btnPublicar = document.createElement("button");
-    btnPublicar.innerHTML= "Publicar";
-    divTexto.insertBefore(btnPublicar, divTexto.childNodes[3]);        
- }
-
-function bloqueCita(e){
-  e.preventDefault();
-  var taskContainer = document.getElementById("tasks-container");
-  var divContenedor = document.createElement("div");
-    taskContainer.insertBefore(divContenedor,taskContainer.childNodes[0]);
-  var divTexto = document.createElement("div");
-    divContenedor.insertBefore(divTexto, divContenedor.childNodes[0]);
-  var textArea = document.createElement("textarea");
-    textArea.setAttribute("rows", 3);
-    textArea.setAttribute("cols", 1);
-    textArea.placeholder="Escribe una frase"; 
-    divTexto.insertBefore(textArea, divTexto.childNodes[1]);  
-  var titulo = document.createElement("input");
-    titulo.placeholder= "Autor de la Cita";
-    divTexto.insertBefore(titulo, divTexto.childNodes[2]);
-  var btnCerrar = document.createElement("button");
-    btnCerrar.innerHTML= "Cerrar";
-    divTexto.insertBefore(btnCerrar, divTexto.childNodes[3]); 
-  var btnPublicar = document.createElement("button");
-    btnPublicar.innerHTML= "Publicar";
-    divTexto.insertBefore(btnPublicar, divTexto.childNodes[3]);        
- }
-
-function bloqueMeme(e){
-  e.preventDefault();
-  var taskContainer = document.getElementById("tasks-container");
-  var divContenedor = document.createElement("div");
-    taskContainer.insertBefore(divContenedor,taskContainer.childNodes[0]);
-  var divTexto = document.createElement("div");
-    divContenedor.insertBefore(divTexto, divContenedor.childNodes[0]);
-  var textArea = document.createElement("textarea");
-    textArea.setAttribute("rows", 3);
-    textArea.setAttribute("cols", 1);
-    textArea.placeholder="Pega la URL de tu Meme"; 
-    divTexto.insertBefore(textArea, divTexto.childNodes[1]);  
-  var btnCerrar = document.createElement("button");
-    btnCerrar.innerHTML= "Cerrar";
-    divTexto.insertBefore(btnCerrar, divTexto.childNodes[2]); 
-  var btnPublicar = document.createElement("button");
-    btnPublicar.innerHTML= "Publicar";
-    divTexto.insertBefore(btnPublicar, divTexto.childNodes[2]);        
- }
-
-function bloquePastilla(e){
-  e.preventDefault();
-  var taskContainer = document.getElementById("tasks-container");
-  var divContenedor = document.createElement("div");
-    taskContainer.insertBefore(divContenedor,taskContainer.childNodes[0]);
-  var divTexto = document.createElement("div");
-    divContenedor.insertBefore(divTexto, divContenedor.childNodes[0]);
-  var textArea = document.createElement("textarea");
-    textArea.setAttribute("rows", 3);
-    textArea.setAttribute("cols", 1);
-    textArea.placeholder="Go!"; 
-    divTexto.insertBefore(textArea, divTexto.childNodes[1]);  
-  var btnCerrar = document.createElement("button");
-    btnCerrar.innerHTML= "Cerrar";
-    divTexto.insertBefore(btnCerrar, divTexto.childNodes[2]); 
-  var btnPublicar = document.createElement("button");
-    btnPublicar.innerHTML= "Pastilla";
-    divTexto.insertBefore(btnPublicar, divTexto.childNodes[2]);        
- }
-
+  this.imprimir
+}; */
