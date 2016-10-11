@@ -6,6 +6,6 @@ function horaPost (){
 }
 
 
-// $(function () {
-//   $('select').material_select();
-// });
+$(function () {
+  $('select').material_select();
+});

@@ -18,6 +18,7 @@ function main(){
   var textArea = document.createElement("textarea");
   var btnCerrar = document.createElement("button");
   var btnPublicar = document.createElement("button");
+  var BoxDate = document.createElement("div");  
 
   function bloqueTexto(){
       taskContainer.insertBefore(divContenedor,taskContainer.childNodes[0]);
@@ -43,7 +44,6 @@ function main(){
               boxpost.insertBefore(inputTitulo,boxpost[0]);
               boxpost.insertBefore(inputTexto,boxpost[1]);
             var date = new Date().toLocaleTimeString(navigator.language, {hour:"2-digit", minute:"2-digit"});
-            var BoxDate = document.createElement("div");
               BoxDate.innerText = date;  
               boxpost.appendChild(BoxDate);              
               textArea.value = "";
@@ -75,7 +75,6 @@ function main(){
               boxpost.insertBefore(inputCita,boxpost[0]);
               boxpost.insertBefore(inputAutor,boxpost[1]);         
             var date = new Date().toLocaleTimeString(navigator.language, {hour:"2-digit", minute:"2-digit"});
-            var BoxDate = document.createElement("div");
               BoxDate.innerText = date;  
               boxpost.appendChild(BoxDate);
               textArea.value = "";
@@ -101,7 +100,6 @@ function main(){
             inputUrl.setAttribute("src",textArea.value);
             boxpost.appendChild(inputUrl);
             var date = new Date().toLocaleTimeString(navigator.language, {hour:"2-digit", minute:"2-digit"});
-            var BoxDate = document.createElement("div");
               BoxDate.innerText = date;  
               boxpost.appendChild(BoxDate); 
               textArea.value = "";
@@ -127,16 +125,8 @@ function main(){
               inputPastilla.innerHTML = textArea.value;
               boxpost.appendChild(inputPastilla);
             var date = new Date().toLocaleTimeString(navigator.language, {hour:"2-digit", minute:"2-digit"});
-            var BoxDate = document.createElement("div");
               BoxDate.innerText = date;  
               boxpost.appendChild(BoxDate); 
               textArea.value = "";                  
           })
-      }    
-
-/*function Post(textArea, hora, titulo){
-  this.textArea = textArea;
-  this.hora = hora;
-  this.titulo = titulo;
-  this.imprimir
-}; */
+      }
